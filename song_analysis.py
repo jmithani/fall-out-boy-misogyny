@@ -27,6 +27,7 @@ violent_words = ['kill',
 'swear',
 'deserve',
 'bury',
+'break',
 'pay',
 'choke',
 'sharpen', 'douse', 'slit', 'overdose', 'demote', 'suffocate', 'force', 'terrify', 'drown', 'dead', 'hunt', 'sedate', 'mummify', 'blackmail', 'hate']
@@ -53,13 +54,13 @@ def find_verbs(text, song, file):
     words_in_song = set(words_in_song)
 
     if len(words_in_song) > 1:
-        row = [song, len(words_in_song)]
+        row = [song, len(song) -4, len(words_in_song)]
         for w in words_in_song:
             row.append(w)
         return row
 
 
-with open('songs_list.csv', 'a') as s:
+with open('edited_songs_list.csv', 'a') as s:
     for file in files:
         with open(directory + file, 'r') as f:
             text = f.read()
